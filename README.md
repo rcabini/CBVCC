@@ -5,7 +5,7 @@ The primary goal of the CBVCC challenge is to create models that can accurately 
 * Identifying videos where cells exhibit sudden changes in their direction of movement.
 * Distinguishing these from videos where cells show consistent, linear movement, stationary cells as well as from videos containing only background.
 
-The CBVCC challenge aims to provide a platform for researchers to develop innovative methods for classifying IVM videos, potentially leading to new insights into biological processes. More details are available available [here](https://immunemap.org/index.php/challenges-menu/cbvcc).
+The CBVCC challenge aims to provide a platform for researchers to develop innovative methods for classifying IVM videos, potentially leading to new insights into biological processes. More details are available on the [official challenge page](https://immunemap.org/index.php/challenges-menu/cbvcc).
 <p align="center">
   <img src="gifs/0.gif" alt="Example 1" width="25%" />
   <img src="gifs/1.gif" alt="Example 2" width="25%" />
@@ -110,4 +110,25 @@ python evaluate_submission.py \
   --gt_train /path/to/train_gt.csv \
   --output_path /path/to/output
 ```
+## Repositories of Participating Methods
+
+Below are the repositories of the methods participating in the challenge:
+
+- **GIMR - Garvan Institute of Medical Research**
+  [https://github.com/lxfhfut/TrajNet](https://github.com/lxfhfut/TrajNet)
+
+- **LRI Imaging Core - Cleveland Clinic**
+  [https://github.com/yujiahu415/CBVCC](https://github.com/yujiahu415/CBVCC)
+
+- **QuantMorph - University of Toronto**
+  [https://bitbucket.org/raymond_hawkins_utor/cbvcc/src/main/](https://bitbucket.org/raymond_hawkins_utor/cbvcc/src/main/)
+
+- **dp-lab - USI**
+  [https://github.com/rcabini/CBVCC_CNN](https://github.com/rcabini/CBVCC_CNN)
+
+- **BioVision – University of Central Florida**
+  [https://github.com/jkini/CellBehaviorVideoClassification](https://github.com/jkini/CellBehaviorVideoClassification)
+
+## License
+The CBVCC repository is licensed under the Apache License 2.0 license. See the file LICENSE for more details.
 
