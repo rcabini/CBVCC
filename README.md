@@ -49,7 +49,7 @@ Dataset/
 * Submission prediction files of each participating team (e.g., `/uploaded_files/predicted1732199138.csv`)
 * CBVCC leaderboard files for Phases 1 and 2 (CSV)
 
-### Labels CSV Generation
+### 1. Labels CSV Generation
 The script `metrics/generate_gt.py` generates a CSV containing `.avi` filenames and their class labels (0 or 1), based on subfolder names.
 
 Run the script from the command line specifying dataset root and output CSV:
@@ -57,7 +57,7 @@ Run the script from the command line specifying dataset root and output CSV:
 ```bash
 python metrics/generate_gt.py /path/to/dataset training_labels.csv
 ```
-### Video quality Metrics Computation
+### 2. Video quality Metrics Computation
 Use `metrics/compute_quality_metrics.py` to compute video quality metrics such as Signal-to-Noise Ratio (SNR) and number of tracked cells (N.TRACKS).
 
 Run the script as:
@@ -69,7 +69,7 @@ python metrics/compute_quality_metrics.py \
   --output output_metrics.csv
 ```
 
-### Challenge Submissions Evaluation
+### 3. Challenge Submissions Evaluation
 The script `evaluate_submission.py` evaluates model predictions and generates performance metrics and plots for the validation (Phase 1) and test (Phase 2) phases.
 
 #### Required Inputs
