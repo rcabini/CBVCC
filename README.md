@@ -35,7 +35,7 @@ Dataset/subset/
 │   ├── 0/  -> 02_1.avi, 02_2.avi, …
 │   ├── 1/  -> 02_5.avi, 02_6.avi, …
 ```
-    Subfolders represent training, validation, or test sets.
+  Subfolders represent training, validation, or test sets.
 * Tracking Files, available [here](https://immunemap.org/index.php/challenges-menu/cbvcc) (`.csv` files), organized as:
 ```
 Dataset/
