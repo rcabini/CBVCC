@@ -55,7 +55,7 @@ The script `metrics/generate_gt.py` generates a CSV containing `.avi` filenames 
 Run the script from the command line specifying dataset root and output CSV:
 
 ```bash
-python metrics/generate_gt.py /path/to/dataset training_labels.csv
+python metrics/generate_gt.py --root_dir /path/to/dataset --output_csv training_labels.csv
 ```
 ### 2. Video quality Metrics Computation
 Use `metrics/compute_quality_metrics.py` to compute video quality metrics such as Signal-to-Noise Ratio (SNR) and number of tracked cells (N.TRACKS).

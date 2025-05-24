@@ -23,8 +23,8 @@ def generate_label_csv(root_dir, output_csv):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate CSV of filenames and classes from dataset folders.")
-    parser.add_argument('root_dir', help='Root directory of the dataset (e.g. Dataset/subset)')
-    parser.add_argument('output_csv', help='Output CSV filename')
+    parser.add_argument('--root_dir', help='Root directory of the dataset (e.g. Dataset/subset)')
+    parser.add_argument('--output_csv', help='Output CSV filename')
 
     args = parser.parse_args()
     generate_label_csv(args.root_dir, args.output_csv)
