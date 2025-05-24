@@ -11,4 +11,16 @@ The CBVCC challenge aims to provide a platform for researchers to develop innova
   <img src="gifs/1.gif" alt="Esempio 2" width="25%" />
 </p>
 
+## Installation instructions
+
+First, clone the CBVCC repository:
+```bash
+git clone https://github.com/rcabini/CBVCC.git
+```
+Create a virtual environment with Anaconda:
+```bash
+conda env create -f environment.yml
+conda activate environment
+```
+
 
