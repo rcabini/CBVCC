@@ -9,13 +9,16 @@ from sklearn.metrics import (
 #---------------------------------------------------------------
 
 def compute_score_per_cell_count(all_data, counts):
+    counts.index.names = ['file_id']
+    #counts = counts.rename(columns={'N.TRACKS': 'count'})
+    counts.drop(['SNR'], axis='columns', inplace=True)
     all_datac = all_data.merge(counts, left_on='file_id', right_index=True, how='left')
     metrics_dict = {'Num_Cells': [], 'Model': [], 'Score': []}
 
     for column in all_datac.columns:
-        if column not in ['gt', 'count', 'file_id']:
-            for num_cells in sorted(all_datac['count'].unique()):
-                subset = all_datac[all_datac['count'] == num_cells]
+        if column not in ['gt', 'N.TRACKS', 'file_id']:
+            for num_cells in sorted(all_datac['N.TRACKS'].unique()):
+                subset = all_datac[all_datac['N.TRACKS'] == num_cells]
                 if len(subset) > 1 and 0 < num_cells <= 7:
                     predictions = (subset[column] >= 0.5).astype(int)
 

@@ -59,6 +59,13 @@ def process_videos(video_dict, track_dict, common_keys, output_csv):
 
         spots_IXYT = pd.read_csv(file).to_numpy()
         if len(spots_IXYT) == 0:
+            overall[ifiles, :] = [
+                np.nan, np.nan, np.nan, np.nan,
+                np.nan, np.nan, W, H, 1, 1, T,
+                vx, vy, 1, 0  # N.TRACKS = 0
+            ]
+            overall_names.append(key + '.avi')
+            ifiles += 1
             continue
 
         SNR_T = np.full((T, 1), np.nan)

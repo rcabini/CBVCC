@@ -11,6 +11,7 @@ from sklearn.metrics import (
 
 def compute_score_by_snr(all_data, metric, max_snr=30, bins=15):
     metric.index.names = ['file_id']
+    metric.drop(['N.TRACKS'], axis='columns', inplace=True)
     all_datac = all_data.merge(metric, left_on='file_id', right_index=True, how='left')
 
     metrics_dict = {'SNR': [], 'Model': [], 'Score': []}

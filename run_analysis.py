@@ -17,7 +17,8 @@ from metrics.descriptives import plot_class_distribution, plot_metric_distributi
 #---------------------------------------------------------------
 
 def load_analysis(tracks_path, submission_file, gt_file, timestamp_pattern, output_file='./evaluation_metrics.csv'):
-    counts = load_track_counts(tracks_path)
+    #counts = load_track_counts(tracks_path)
+    #counts.to_csv('counts.csv', index=True)
     gt = load_gt(gt_file)
     submission_df = preprocess_submission(submission_file)
     file_timestamp_dict = build_file_timestamp_dict(timestamp_pattern)
@@ -26,14 +27,14 @@ def load_analysis(tracks_path, submission_file, gt_file, timestamp_pattern, outp
     metrics_df = evaluate_models(all_data)
     metrics_df.to_csv(output_file, index=False)
     print(metrics_df)
-    return all_data, counts, metrics_df, gt
+    return all_data, metrics_df, gt
 
 #---------------------------------------------------------------
 
 def main(args):
 
     # Phase 2 - Test
-    all_data_2, counts, _, gt2 = load_analysis(
+    all_data_2, _, gt2 = load_analysis(
         tracks_path=args.tracks_path,
         submission_file=args.submission2,
         gt_file=args.gt2,
@@ -41,27 +42,30 @@ def main(args):
         output_file=os.path.join(args.output_path,'evaluation_metrics2.csv')
     )
     # Quality metrics
-    quality_metric = pd.read_csv(args.quality_csv, index_col='Unnamed: 0', usecols=['SNR', 'Unnamed: 0'])
+    quality_metric = pd.read_csv(args.quality_csv, index_col='Unnamed: 0', usecols=['SNR', 'Unnamed: 0', 'N.TRACKS'])
     # Training ground truth
     gt_train = load_gt(args.gt_train)
     # Phase 1 - Validation
-    all_data_1, _, _, gt1 = load_analysis(
+    all_data_1, _, gt1 = load_analysis(
         tracks_path=args.tracks_path,
         submission_file=args.submission1,
         gt_file=args.gt1,
         timestamp_pattern=args.timestamp_pattern,
         output_file=os.path.join(args.output_path,'evaluation_metrics1.csv')
     )
+    
     # Plots - Test
     style_dict = plot_roc_curves(all_data_2, output_path=os.path.join(args.output_path,'roc2.png'))
-    plot_score_vs_cells(all_data_2, counts, style_dict, clean_name_fn=clean_model_name, output_path=os.path.join(args.output_path,'ncell.png'))
-    plot_score_vs_snr(all_data_2, quality_metric, style_dict, clean_name_fn=clean_model_name, output_path=os.path.join(args.output_path,'snr.png'))
+    plot_score_vs_cells(all_data_2, quality_metric.copy(), style_dict, clean_name_fn=clean_model_name,
+                        output_path=os.path.join(args.output_path,'ncell.png'))
+    plot_score_vs_snr(all_data_2, quality_metric.copy(), style_dict, clean_name_fn=clean_model_name,
+                      output_path=os.path.join(args.output_path,'snr.png'))
     # Plots - Validation
     plot_roc_curves(all_data_1, style_dict=style_dict, output_path=os.path.join(args.output_path,'roc1.png'))
 
     # Plots general descriptives
-    plot_class_distribution(counts.copy(), gt1, gt2, gt_train, output_path=os.path.join(args.output_path,'class.png'))
-    plot_metric_distributions(counts.copy(), quality_metric.copy(), gt1, gt2, output_path=os.path.join(args.output_path,'metric.png'))
+    plot_class_distribution(quality_metric.copy(), gt1, gt2, gt_train, output_path=os.path.join(args.output_path,'class.png'))
+    plot_metric_distributions(quality_metric.copy(), gt1, gt2, output_path=os.path.join(args.output_path,'metric.png'))
 
 #---------------------------------------------------------------
 

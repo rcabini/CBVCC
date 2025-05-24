@@ -54,25 +54,23 @@ def plot_class_distribution(counts, val, tes, tra, output_path='./classes.png'):
 
 #---------------------------------------------------------------
 
-def plot_metric_distributions(counts, metric, val, tes, output_path='./metrics.png'):
+def plot_metric_distributions(metric, val, tes, output_path='./metrics.png'):
+    sns.set_style("whitegrid")
+    # Determine dataset category for each file
+    metric['Dataset'] = 'Training'  # Default all to Train
+    metric.loc[metric.index.isin(val.index), 'Dataset'] = 'Validation'
+    metric.loc[metric.index.isin(tes.index), 'Dataset'] = 'Test'
+    n_tra = len(metric[metric['Dataset']=='Training'])
     dataset_labels = {
-        'Training': f'Training (n={len(counts)})',
+        'Training': f'Training (n={n_tra})',
         'Validation': f'Validation (n={len(val)})',
         'Test': f'Test (n={len(tes)})'
     }
-
-    counts['Dataset'] = dataset_labels['Training']
-    counts.loc[counts.index.isin(val.index), 'Dataset'] = dataset_labels['Validation']
-    counts.loc[counts.index.isin(tes.index), 'Dataset'] = dataset_labels['Test']
-
     order = {
         dataset_labels['Validation']: 0,
         dataset_labels['Training']: 2,
         dataset_labels['Test']: 1
     }
-    counts['Priority'] = counts['Dataset'].map(order)
-    counts = counts.sort_values(by='Priority')
-    
     metric['Dataset'] = dataset_labels['Training']
     metric.loc[metric.index.isin(val.index), 'Dataset'] = dataset_labels['Validation']
     metric.loc[metric.index.isin(tes.index), 'Dataset'] = dataset_labels['Test']
@@ -87,7 +85,7 @@ def plot_metric_distributions(counts, metric, val, tes, output_path='./metrics.p
         dataset_labels['Test']: 'green'
     }
 
-    sns.histplot(data=counts, x='count', hue='Dataset', bins=20, kde=False,
+    sns.histplot(data=metric, x='N.TRACKS', hue='Dataset', bins=20, kde=False,
                  palette=palette, alpha=0.6, ax=ax1)
     ax1.set_xlabel('Number of Cells per File', fontsize=18)
     ax1.set_ylabel('Frequency', fontsize=18)
