@@ -5,7 +5,7 @@ The primary goal of the CBVCC challenge is to create models that can accurately 
 * Identifying videos where cells exhibit sudden changes in their direction of movement.
 * Distinguishing these from videos where cells show consistent, linear movement, stationary cells as well as from videos containing only background.
 
-The CBVCC challenge aims to provide a platform for researchers to develop innovative methods for classifying IVM videos, potentially leading to new insights into biological processes. More details are available on the [official challenge page](https://immunemap.org/index.php/challenges-menu/cbvcc).
+The CBVCC challenge aims to provide a platform for researchers to develop innovative methods for classifying IVM videos, potentially leading to new insights into biological processes. More details are available on the [official challenge page](https://www.dp-lab.info/cbvcc/).
 <p align="center">
   <img src="gifs/0.gif" alt="Example 1" width="25%" />
   <img src="gifs/1.gif" alt="Example 2" width="25%" />
@@ -25,7 +25,7 @@ conda activate environment
 
 ## Required Files
 To run the full CBVCC analysis pipeline, the following files are necessary:
-* CBVCC Video Patches, available [here](https://immunemap.org/index.php/challenges-menu/cbvcc) (`.avi` files), organized as:
+* CBVCC Video Patches, available [here](https://www.dp-lab.info/cbvcc/#dataset) (`.avi` files), organized as:
 ```
 Dataset/subset/
 ├── 01/
@@ -36,7 +36,7 @@ Dataset/subset/
 │   ├── 1/  -> 02_5.avi, 02_6.avi, …
 ```
   Subfolders represent training, validation, or test sets.
-* Tracking Files, available [here](https://immunemap.org/index.php/challenges-menu/cbvcc) (`.csv` files), organized as:
+* Tracking Files, available [here](https://www.dp-lab.info/cbvcc/#dataset) (`.csv` files), organized as:
 ```
 Dataset/
 ├── 01/
