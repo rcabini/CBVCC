@@ -121,13 +121,16 @@ Below are the repositories of the methods participating in the challenge:
   [https://github.com/yujiahu415/CBVCC](https://github.com/yujiahu415/CBVCC)
 
 - **QuantMorph - University of Toronto**
-  [https://bitbucket.org/raymond_hawkins_utor/cbvcc/src/main/](https://bitbucket.org/raymond_hawkins_utor/cbvcc/src/main/)
+  [https://bitbucket.org/raymond_hawkins_utor/cbvcc/src/main](https://bitbucket.org/raymond_hawkins_utor/cbvcc/src/main)
 
 - **dp-lab - USI**
   [https://github.com/rcabini/CBVCC_CNN](https://github.com/rcabini/CBVCC_CNN)
 
 - **BioVision – University of Central Florida**
   [https://github.com/jkini/CellBehaviorVideoClassification](https://github.com/jkini/CellBehaviorVideoClassification)
+
+- **Computational Immunology - Radboud University**
+  [https://github.com/DavidCicch/CBVC_Challenge](https://github.com/DavidCicch/CBVC_Challenge)
 
 ## License
 The CBVCC repository is licensed under the Apache License 2.0 license. See the file LICENSE for more details.
