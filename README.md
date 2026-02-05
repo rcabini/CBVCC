@@ -126,6 +126,9 @@ Below are the repositories of the methods participating in the challenge:
 - **dp-lab - USI**
   [https://github.com/rcabini/CBVCC_CNN](https://github.com/rcabini/CBVCC_CNN)
 
+- **UWT-SET – University of Washington**
+  [https://github.com/cgygangyi/cbvcc-challenge-solution](https://github.com/cgygangyi/cbvcc-challenge-solution)
+
 - **BioVision – University of Central Florida**
   [https://github.com/jkini/CellBehaviorVideoClassification](https://github.com/jkini/CellBehaviorVideoClassification)
 
