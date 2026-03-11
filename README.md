@@ -110,6 +110,30 @@ python evaluate_submission.py \
   --gt_train /path/to/train_gt.csv \
   --output_path /path/to/output
 ```
+
+## Leaderboard Generation (PHP)
+
+The official CBVCC leaderboard was generated using a PHP script included in this repository (`eval_code.php`) which:
+
+- Parses participant submission CSV files.
+- Computes performance metrics including TP, FP, FN, TN, sensitivity, specificity, precision, recall, balanced accuracy, and AUC.
+- Calculates the ROC curve and AUC using the trapezoidal rule.
+- Generates the final rankings according to the challenge evaluation protocol.
+
+**Usage:**
+
+1. Set the paths to your ground truth and submission files in the script. For example:
+```php
+// CSV containing the ground truth labels for either the validation or test phase
+$groundTruthFile = 'phase_1_GT.csv';  
+// CSV file containing the predictions submitted by a participant
+$predictionsFile = 'your_file.csv';
+```
+2. Run the script via the command line with PHP installed:
+```
+php eval_code.php
+```
+
 ## Repositories of Participating Methods
 
 Below are the repositories of the methods participating in the challenge:
