@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Myvisualize
-Exec=/home/raffaella/Documenti/USI/action_rec/visualize/run_visualize.sh %U
-Terminal=false
-Categories=AudioVideo;Audio;Video;Player;TV;
-Icon=/home/raffaella/Documenti/USI/action_rec/visualize/icon.png
