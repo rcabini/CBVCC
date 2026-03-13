@@ -111,7 +111,7 @@ python evaluate_submission.py \
   --output_path /path/to/output
 ```
 
-## Evaluation Metrics (PHP)
+## CBVCC Evaluation Metrics (PHP)
 
 The PHP script included in this repository (`eval_code.php`) was used during the CBVCC challenge to compute the performance metrics for participant submissions, which were then used to generate the official leaderboard. 
 
