@@ -130,6 +130,14 @@ $predictionsFile = 'your_file.csv';   // Participant submission
 php eval_code.php
 ```
 
+## Benchmarking of State-of-the-Art Video Models
+
+To complement the CBVCC challenge results, we conducted an independent post-challenge benchmark of state-of-the-art video classification models. This benchmark provides a reference performance level and additional insights into how current deep learning approaches perform on the CBVCC dataset under standardized conditions.
+
+All details regarding the evaluated models, training procedures, and hyperparameters are available in the dedicated repository:
+
+👉 [https://github.com/rcabini/CBVCC-benchmark](https://github.com/cgygangyi/cbvcc-challenge-solution)
+
 ## Repositories of Participating Methods
 
 Below are the repositories of the methods participating in the challenge:
